@@ -26,7 +26,7 @@ boolean leftPressed = false;
 boolean rightPressed = false;
 
 
-/*------------------------------------------------------------------SETUP-----------------------------------------------------------------*/
+/*-------------------------------SETUP-------------------------------*/
 void setup () {
   size(640, 480) ;
   shipW = 51;
@@ -57,7 +57,7 @@ void setup () {
   gameState = GAME_START;
 }
 
-/*------------------------------------------------------------------DRAW-----------------------------------------------------------------*/
+/*-------------------------------DRAW-------------------------------*/
 
 void draw() {
 
@@ -86,6 +86,20 @@ void draw() {
       image(bgImg1,bgX, 0);//fisrt bakground
       image(bgImg2,-640+bgX, 0);//second background
       image(bgImg1,-1280+bgX, 0);//third background
+
+      //treasure
+
+      image(treasureImg, treasureX, treasureY);
+      
+      //collision
+      treasureD = sqrt(pow(treasureX-shipX,2)+pow(treasureY-shipY,2));
+      if (treasureD < 40){
+        if (currentHP < HP) {
+           currentHP += HP/10;
+        }
+        treasureX = random(0, width+1-treasureW/2);
+        treasureY = random(0, height+1-treasureH/2);
+      }
 
 
       //ship
@@ -153,19 +167,7 @@ void draw() {
       }
   
 
-      //treasure
 
-      image(treasureImg, treasureX, treasureY);
-      
-      //collision
-      treasureD = sqrt(pow(treasureX-shipX,2)+pow(treasureY-shipY,2));
-      if (treasureD < 40){
-        if (currentHP < HP) {
-           currentHP += HP/10;
-        }
-        treasureX = random(0, width+1-treasureW/2);
-        treasureY = random(0, height+1-treasureH/2);
-      }
 
 
       //HP
@@ -196,7 +198,7 @@ void draw() {
 
 }
 
-/*------------------------------------------------------------------KEY-----------------------------------------------------------------*/
+/*-------------------------------KEY-------------------------------*/
 
 void keyPressed() {
 
