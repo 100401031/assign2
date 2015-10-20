@@ -88,7 +88,7 @@ void draw() {
       image(bgImg1,-1280+bgX, 0);//third background
 
       //treasure
-
+      imageMode(CENTER);
       image(treasureImg, treasureX, treasureY);
       
       //collision
@@ -140,7 +140,7 @@ void draw() {
 
 
       //enemy
-
+      imageMode(CENTER);
       image(enemyImg, enemyX, enemyY);
       enemyX += enemySpeed;
       enemyX %= 640;
