@@ -184,8 +184,6 @@ void draw() {
 
     case GAME_LOSE:
     
-    //background
-    
     if (mouseX >= 210 && mouseX <= 434 && mouseY >= 312 && mouseY<= 348) {
       image(endImg1,0,0);
         if (mousePressed == true) {
